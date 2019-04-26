@@ -41,8 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         entry2.setOnClickListener(this);
         entry3.setOnClickListener(this);
         entry4.setOnClickListener(this);
+        entry5.setOnClickListener(this);
         entry6.setOnClickListener(this);
         entry9.setOnClickListener(this);
+
     }
 
     @Override
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(CarCheck.class);
         } else if (v == entry3) {
             startActivity(TemporaryControl.class);
+        } else if(v == entry5){
+            startActivity(ObscureSearch.class);
         } else if (v == entry4) {
             startActivity(PersonCheck.class);
         } else if (v == entry6) {

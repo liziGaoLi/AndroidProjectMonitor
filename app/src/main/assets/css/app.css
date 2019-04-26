@@ -40,4 +40,8 @@
 .relative .triangle { position: absolute; right: 5px; top: 50%; margin-top: -13px; width: 26px; height: 26px; }
 .car_search.aui-grid [class*=aui-col-xs-]:active { background:#fff; }
 .fixed_bottom { position: fixed; width: 80%; bottom: 50px; left: 10%; }
+.tips { font-size: 0.8rem; text-align: center; padding-bottom: 10px; }
+.red_font { color: #cd0000; }
+.padding_top_0 { padding-top: 0; }
+.padding_top_20 { padding-top: 20px; }
 /*2019-04-26-end*/

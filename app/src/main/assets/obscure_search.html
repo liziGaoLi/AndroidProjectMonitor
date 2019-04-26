@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="total_height">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>模糊查询</title>
+	<link rel="stylesheet" href="css/mui.min.css">
+	<link rel="stylesheet" href="css/mui.picker.min.css">
+	<link rel="stylesheet" href="css/aui.css">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="total_height">
+	<div class="aui-content total_height white_back">
+		<div class="tips red_font padding_top_20">
+			提示：支持?*匹配，至少填写3项<br/>此搜索时间较长，请耐心等待
+		</div>
+		<div class="aui-grid car_search padding_top_0">
+			<div class="aui-row">
+				<div class="aui-col-xs-4">姓&nbsp;&nbsp;&nbsp;名:</div>
+				<div class="aui-col-xs-8">
+					<input type="text" placeholder="如:小明,小*,?明">
+				</div>
+			</div>
+			<div class="aui-row">
+				<div class="aui-col-xs-4">身份证:</div>
+				<div class="aui-col-xs-8">
+					<input type="text" placeholder="如:222?03,22240319*">
+				</div>
+			</div>
+			<div class="aui-row">
+				<div class="aui-col-xs-4">性&nbsp;&nbsp;&nbsp;别:</div>
+				<div class="aui-col-xs-8 relative">
+					<input type="text" placeholder="请选择性别" readonly onclick="selectSex(this);">
+					<img src="img/triangle.png" class="triangle" alt="">
+				</div>
+			</div>
+			<div class="aui-row">
+				<div class="aui-col-xs-4">年&nbsp;&nbsp;&nbsp;龄:</div>
+				<div class="aui-col-xs-8">
+					<input type="text" placeholder="如:40">
+				</div>
+			</div>
+			<div class="aui-row">
+				<div class="aui-col-xs-4">民&nbsp;&nbsp;&nbsp;族:</div>
+				<div class="aui-col-xs-8">
+					<input type="text" placeholder="如:汉族">
+				</div>
+			</div>
+			<div class="aui-row">
+				<div class="aui-col-xs-4">户籍地:</div>
+				<div class="aui-col-xs-8">
+					<input type="text" placeholder="如:吉林省敦化市">
+				</div>
+			</div>
+		</div>
+		<button class="search_btn fixed_bottom">提交</button>
+	</div>
+</body>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.picker.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script>
+	mui.init();
+	/*性别数据*/
+	var sexData = [
+		{
+			"text":"男",
+			"value":1
+		},
+		{
+			"text":"女",
+			"value":0
+		}
+	];
+    /*选择性别*/
+	function selectSex(obj){
+		var userPicker = new mui.PopPicker();
+		userPicker.setData(sexData);
+		userPicker.show(function(items) {
+			obj.value = items[0].text;
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	}
+</script>
+</html>

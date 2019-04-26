@@ -3,7 +3,8 @@
     package="com.example.apptest.androidprojectmonitor">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,16 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--TODO 人员核查-->
+        <!-- TODO 人员核查 -->
         <activity android:name=".activity.PersonnelVerification" />
-        <activity android:name=".activity.TemporaryControl"></activity>
+        <activity android:name=".activity.TemporaryControl" />
         <activity android:name=".activity.ContactsActivity" />
-        <!--TODO 人员查询-->
+        <!-- TODO 人员查询 -->
         <activity android:name=".activity.PersonCheck" />
-        <!--TODO 车辆核查-->
+        <!-- TODO 车辆核查 -->
         <activity android:name=".activity.CarCheck" />
-        <!--TODO 车辆查询-->
-        <activity android:name=".activity.CarSearch"></activity>
+        <!-- TODO 车辆查询 -->
+        <activity android:name=".activity.CarSearch" />
+        <activity android:name=".activity.ObscureSearch" />
     </application>
 
 </manifest>
