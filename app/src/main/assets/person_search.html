@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="total_height">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>人员查询</title>
+	<link rel="stylesheet" href="css/aui.css">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="total_height">
+	<div class="aui-content total_height white_back">
+		<div class="aui-grid search_padding search_box">
+			<div class="aui-row">
+				<div class="aui-col-xs-8">
+					<input type="text" value="" id="input" placeholder="请输入身份证号" readonly>
+				</div>
+				<div class="aui-col-xs-4">
+					<button type="button" id="search">核查</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- 键盘-start -->
+	<div class="keyboard" id="keyboard" style="display: none;">
+		<section class="aui-grid">
+		    <div class="aui-row">
+		        <div class="aui-col-xs-3 key_item" data-count="1">
+		            <span>1</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="2">
+		            <span>2</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="3">
+		            <span>3</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="delete">
+		            <img src="img/delete.png" class="delete_btn" alt="">
+		        </div>
+		    </div>
+		    <div class="aui-row">
+		        <div class="aui-col-xs-3 key_item" data-count="4">
+		            <span>4</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="5">
+		            <span>5</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="6">
+		            <span>6</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="confirm">
+		            <span>确认</span>
+		        </div>
+		    </div>
+		    <div class="aui-row">
+		        <div class="aui-col-xs-3 key_item" data-count="7">
+		            <span>7</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="8">
+		            <span>8</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="9">
+		            <span>9</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="clean">
+		            <span>清空</span>
+		        </div>
+		    </div>
+		    <div class="aui-row">
+		        <div class="aui-col-xs-6 key_item" data-count="0">
+		            <span>0</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="X">
+		            <span>X</span>
+		        </div>
+		        <div class="aui-col-xs-3 key_item" data-count="hide">
+		            <span>收起</span>
+		        </div>
+		    </div>
+		</section>
+	</div>
+	<!-- 键盘-end -->
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+	/*输入框获得焦点,显示键盘*/
+	$('#input').click(function(){
+		$('#keyboard').show();
+	});
+
+	/*点击键盘上的按钮，实现功能*/
+	$('#keyboard .key_item').click(function(){
+		var count = $(this).attr('data-count');
+		var value = $('#input').val();
+		var cursorPos;
+		var valLen = value.length;
+		if(count == 'delete'){ //点击删除按钮
+			cursorPos = getTxt1CursorPosition();
+			var valArr = value.split('');
+			if(valLen == cursorPos){  //末尾删除
+				valArr.pop();
+			}else{  //定位删除
+				if(cursorPos != 0){
+					valArr.splice(cursorPos-1,1);
+				}
+			}
+			value = valArr.join('');
+			$('#input').val(value);
+			cursorPos == 0?setCaretPosition(0):setCaretPosition(cursorPos-1);
+			
+			$('#input').focus();
+		}else if(count == 'clean'){  //点击清空按钮
+ 			$('#input').val('');
+			$('#input').focus();
+		}else if(count == 'confirm'){ //点击确认按钮
+			$('#keyboard').hide();
+		}else if(count == 'hide'){  //点击收起按钮
+			$('#keyboard').hide();
+		}else{
+			cursorPos = getTxt1CursorPosition();
+			if(valLen == cursorPos){  //末尾删除
+				value = value + count;
+			}else{  //定位删除
+				var startStr = value.substring(0,cursorPos);
+				var endStr = value.substring(cursorPos);
+				value = startStr + count + endStr;
+			}
+			$('#input').val(value);
+			setCaretPosition(cursorPos+1);
+		}
+	});
+	/*获得输入框中光标的位置*/
+	function getTxt1CursorPosition(){
+	    var oTxt1 = document.getElementById('input');
+	    var cursurPosition=-1;
+	    if(oTxt1.selectionStart){//非IE浏览器
+	        cursurPosition= oTxt1.selectionStart;
+	    }else{//IE
+	    	if(oTxt1.value != ''&&document.selection != undefined){
+	    		var range = document.selection.createRange();
+		        range.moveStart("character",-oTxt1.value.length);
+		        cursurPosition=range.text.length;
+	    	}else{
+	    		cursurPosition = 0;
+	    	}
+	        
+	    }
+	    return cursurPosition;
+	}
+	// 设置光标位置
+	function setCaretPosition(pos){
+		var textDom = document.getElementById('input');
+	    if(textDom.setSelectionRange) {
+	        // IE Support
+	        textDom.focus();
+	        textDom.setSelectionRange(pos, pos);
+	    }else if (textDom.createTextRange) {
+	        // Firefox support
+	        var range = textDom.createTextRange();
+	        range.collapse(true);
+	        range.moveEnd('character', pos);
+	        range.moveStart('character', pos);
+	        range.select();
+	    }
+	}
+</script>
+</html>

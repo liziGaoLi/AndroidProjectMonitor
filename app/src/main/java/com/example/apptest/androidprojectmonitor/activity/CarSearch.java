@@ -12,16 +12,15 @@ import com.example.apptest.androidprojectmonitor.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PersonnelVerification extends AppCompatActivity implements View.OnClickListener {
+public class CarSearch extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.webView)  // TODO WebView
-    WebView webView;
+        WebView webView;
     @BindView(R.id.backBtn)  // TODO 返回按钮
         ImageView backBtn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personnel_verification);
+        setContentView(R.layout.activity_car_search);
         ButterKnife.bind(this);
         backBtn.setOnClickListener(this);
         initWebView();  //初始化html页面
@@ -30,7 +29,7 @@ public class PersonnelVerification extends AppCompatActivity implements View.OnC
     private void initWebView(){
         webView.getSettings().setJavaScriptEnabled(true);  //设置html,页面可以交互
         webView.setBackgroundColor(Color.TRANSPARENT);
-        webView.loadUrl("file:///android_asset/personnel_verification.html");
+        webView.loadUrl("file:///android_asset/cars_search.html");
     }
 
     @Override

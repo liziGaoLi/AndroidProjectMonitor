@@ -12,3 +12,32 @@
 #search { height: 40px; background: #0c56e9; color: #fff; width: 80%; max-width: 90px; border-radius: 0; border: none; }
 .search_padding { padding: 0 0.75rem; }
 .search_box.aui-grid    [class*=aui-col-xs-]:active { background:#fff; }
+
+/*2019-04-26-start*/
+.person_img { height: 164px; overflow: hidden; line-height: 164px; }
+.person_img img { display: inline; width: 100%; height: 100% }
+.search_con .aui-grid [class*=aui-col-xs-]:active { background:#fff; }
+.search_con .aui-grid [class*=aui-col-xs-] { padding: 0; color: #333; font-size: 0.9rem; text-align: left; }
+.search_con .aui-grid .aui-col-xs-5 { padding: 8px 0 8px 0px; text-indent: 8px; font-size: 0.8rem; }
+.search_con .aui-grid .aui-col-xs-7 { padding: 8px 0; font-size: 0.8rem; }
+.search_con .aui-grid .aui-col-xs-12 { padding: 8px 0; }
+.no_border_top { border-top: none; }
+.border_left { border-left: 1px solid #eee; }
+.border_right { border-right: 1px solid #eee; }
+.border_bottom { border-bottom: 1px solid #eee; }
+.id_card .aui-col-xs-12 span:first-child{ padding-left: 10px; }
+.id_card .aui-col-xs-12 span { font-size: 0.8rem; }
+.blue_font { color: #214eb3; }
+.search_state span[data-state="1"] { color: #214eb3; }
+.search_state span[data-state="0"] { color: #cd0000; }
+.padding_left_10 { padding-left: 10px!important; }
+.search_btn { display: block; height: 46px; width: 150px; border: none; border-radius: 0px; background: #0c56e9; color: #fff; margin: 30px auto 0; }
+.car_search input { border: 1px solid #eee; height: 46px; font-size: 16px; text-indent: 10px; }
+.car_search { padding: 30px 15px 0; }
+.car_search.aui-grid [class*=aui-col-xs-] { padding: 8px 0; font-size: 0.8rem; color: #333; }
+.car_search.aui-grid .aui-row { border-top: none; line-height: 46px; }
+.relative { position: relative; }
+.relative .triangle { position: absolute; right: 5px; top: 50%; margin-top: -13px; width: 26px; height: 26px; }
+.car_search.aui-grid [class*=aui-col-xs-]:active { background:#fff; }
+.fixed_bottom { position: fixed; width: 80%; bottom: 50px; left: 10%; }
+/*2019-04-26-end*/
