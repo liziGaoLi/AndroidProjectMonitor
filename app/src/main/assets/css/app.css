@@ -1,0 +1,14 @@
+.total_height { height: 100%; }
+.white_back { background: #fff; }
+.keyboard { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; }
+.aui-row { border-top: 1px solid #eee; }
+.keyboard .aui-row .aui-col-xs-3 { border-left: 1px solid #eee; font-size: 1.2rem; color: #333; padding: 0.7rem 0; }
+.keyboard .aui-row .aui-col-xs-6 { font-size: 1.2rem; color: #333; padding: 0.7rem 0; }
+.keyboard .aui-row .aui-col-xs-3:first-child { border-left: none; }
+.keyboard .aui-row .aui-col-xs-3[data-count="confirm"],.keyboard .aui-row .aui-col-xs-3[data-count="hide"] { background: #0c56e9; color: #fff; font-size: 1.1rem; padding: 0.8rem 0; }
+.keyboard .aui-row .aui-col-xs-3[data-count="clean"] { background: #fb6f17; color: #fff; font-size: 1.1rem; padding: 0.8rem 0; }
+.delete_btn { display: block; width: 1.7rem; margin: 0 auto; }
+#input { border: 1px solid #c0c0c0; height: 40px; padding: 0 10px; }
+#search { height: 40px; background: #0c56e9; color: #fff; width: 80%; max-width: 90px; border-radius: 0; border: none; }
+.search_padding { padding: 0 0.75rem; }
+.search_box.aui-grid    [class*=aui-col-xs-]:active { background:#fff; }
