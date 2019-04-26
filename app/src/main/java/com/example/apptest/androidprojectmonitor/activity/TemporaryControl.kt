@@ -41,9 +41,6 @@ class TemporaryControl : AppCompatActivity() {
         back.setOnClickListener {
             finish()
         }
-        toMain.setOnClickListener {
-            finish()
-        }
     }
 
     private fun initView() {

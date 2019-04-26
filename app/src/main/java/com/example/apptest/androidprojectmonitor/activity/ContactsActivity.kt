@@ -17,9 +17,6 @@ import com.example.apptest.androidprojectmonitor.R
 import com.example.apptest.androidprojectmonitor.adapter.ContactAdapter
 import com.example.apptest.androidprojectmonitor.feature.transparentStatus
 import kotlinx.android.synthetic.main.activity_contacts.*
-import kotlinx.android.synthetic.main.activity_contacts.back
-import kotlinx.android.synthetic.main.activity_contacts.toMain
-import kotlinx.android.synthetic.main.activity_temporary_control.*
 import kotlinx.android.synthetic.main.bottom_sheet_contact_select.view.*
 
 class ContactsActivity : AppCompatActivity() {
@@ -91,9 +88,6 @@ class ContactsActivity : AppCompatActivity() {
         }
 
         back.setOnClickListener {
-            finish()
-        }
-        toMain.setOnClickListener {
             finish()
         }
     }
