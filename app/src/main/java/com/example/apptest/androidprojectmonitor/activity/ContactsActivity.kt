@@ -15,6 +15,7 @@ import android.widget.Toast
 import com.example.apptest.androidprojectmonitor.ContactsData
 import com.example.apptest.androidprojectmonitor.R
 import com.example.apptest.androidprojectmonitor.adapter.ContactAdapter
+import com.example.apptest.androidprojectmonitor.feature.moveToPosition
 import com.example.apptest.androidprojectmonitor.feature.transparentStatus
 import kotlinx.android.synthetic.main.activity_contacts.*
 import kotlinx.android.synthetic.main.bottom_sheet_contact_select.view.*
@@ -35,7 +36,39 @@ class ContactsActivity : AppCompatActivity() {
     private fun initData() {
         val data = ArrayList<ContactsData>();
         data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'b', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'N', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'O', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'I', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'Y', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'T', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'R', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'W', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'Q', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'E', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'F', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'S', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'W', "220xxx", "江北", "10001"))
+        data.add(ContactsData("Alice", 'F', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("Bob", 'D', "220xxx", "江北", "10001"))
         data.sort()
         adapter.clearAdd(data)
         view.call.setOnClickListener {
@@ -86,6 +119,10 @@ class ContactsActivity : AppCompatActivity() {
             }
             bottomSheet.show()
         }
+        sidebar.setOnTextTouchedListener {
+            contacts.moveToPosition(adapter.getFirstCharPosition(it))
+        }
+
 
         back.setOnClickListener {
             finish()

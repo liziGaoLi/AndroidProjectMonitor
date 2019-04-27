@@ -54,4 +54,12 @@
 
     </android.support.v7.widget.RecyclerView>
 
+
+    <com.example.apptest.androidprojectmonitor.feature.SideBar
+        android:layout_width="20dp"
+        android:layout_height="0dp" android:id="@+id/sidebar"
+        app:layout_constraintBottom_toBottomOf="@+id/contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contacts"
+        app:layout_constraintTop_toTopOf="@+id/contacts" />
+
 </android.support.constraint.ConstraintLayout>

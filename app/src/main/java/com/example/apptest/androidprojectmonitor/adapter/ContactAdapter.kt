@@ -11,6 +11,16 @@ class ContactAdapter : BaseRecyclerViewAdapter<ContactsData, ContactAdapter.Cont
 
     override fun layoutId() = R.layout.item_contacts
 
+    fun getFirstCharPosition(ch: String): Int {
+        for (pos in 0 until data.size) {
+            if (data[pos].pinyinChar.toString() == ch) {
+                return pos
+            }
+        }
+        return -1
+    }
+
+
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         var item = data[position]
