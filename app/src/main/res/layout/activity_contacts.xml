@@ -20,15 +20,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-
-
-        <ImageView android:layout_marginStart="15dp" android:layout_marginLeft="15dp"
+        <ImageView
             android:id="@+id/back"
             android:layout_width="26dp"
-            android:layout_height="26dp" android:scaleType="fitCenter"
+            android:layout_height="26dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/arrow" />
 
         <TextView
@@ -41,14 +42,14 @@
             android:textSize="20sp" />
 
 
-
     </RelativeLayout>
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/contacts" android:background="@android:color/white"
+        android:id="@+id/contacts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
@@ -56,10 +57,34 @@
 
 
     <com.example.apptest.androidprojectmonitor.feature.SideBar
-        android:layout_width="30dp"
-        android:layout_height="0dp" android:id="@+id/sidebar"
+        android:id="@+id/sidebar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:floating_background_color="#99999999"
+        app:floating_text_color="@android:color/white"
+        app:floating_text_size="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/contacts"
         app:layout_constraintEnd_toEndOf="@+id/contacts"
-        app:layout_constraintTop_toTopOf="@+id/contacts" />
+        app:layout_constraintTop_toTopOf="@+id/contacts"
+        app:selectedColor="@color/design_default_color_primary"
+        app:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/showTip"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/contacts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
 
 </android.support.constraint.ConstraintLayout>

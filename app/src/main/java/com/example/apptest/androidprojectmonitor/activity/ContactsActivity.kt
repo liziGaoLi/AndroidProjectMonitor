@@ -128,6 +128,7 @@ class ContactsActivity : AppCompatActivity() {
         sidebar.setOnTextTouchedListener {
             contacts.moveToPosition(adapter.getFirstCharPosition(it))
         }
+        sidebar.setTipView(showTip)
 
 
         back.setOnClickListener {
