@@ -1,10 +1,7 @@
 package com.example.apptest.androidprojectmonitor.feature
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -25,10 +22,11 @@ class SideBar : View {
     private var paint: Paint = Paint()
 
     init {
-        paint.textSize = 20f
+        paint.textSize = 25f
         paint.isAntiAlias = true
         paint.color = Color.BLACK
-        paint.strokeWidth = 2f
+        paint.strokeWidth = 1f
+        paint.typeface= Typeface.DEFAULT_BOLD
         paint.style = Paint.Style.STROKE
         paint.textAlign = Paint.Align.LEFT
 

@@ -35,40 +35,46 @@ class ContactsActivity : AppCompatActivity() {
 
     private fun initData() {
         val data = ArrayList<ContactsData>();
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'N', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'B', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'O', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'I', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'Y', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'T', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'R', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'W', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'Q', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'E', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'F', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'S', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'A', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'W', "220xxx", "江北", "10001"))
-        data.add(ContactsData("Alice", 'F', "220xxx", "永吉", "10000"))
-        data.add(ContactsData("Bob", 'D', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'N', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'B', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'O', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'I', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'Y', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'T', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'R', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'W', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'Q', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'E', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'F', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'S', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'A', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'W', "220xxx", "江北", "10001"))
+        data.add(ContactsData("A-Name", 'F', "220xxx", "永吉", "10000"))
+        data.add(ContactsData("-Name", 'D', "220xxx", "江北", "10001"))
+
+        for (i in 'A'..'Z') {
+            for (count in 0..10) {
+                data.add(ContactsData("${i}-Name$count", i, "220xxx", "江北", "10001$count"))
+            }
+        }
         data.sort()
         adapter.clearAdd(data)
         view.call.setOnClickListener {
@@ -80,8 +86,8 @@ class ContactsActivity : AppCompatActivity() {
             callPhone()
 
         }
-//        data.add(ContactsData("Alice",'A',"220221199612230122","永吉","10000"))
-//        data.add(ContactsData("Alice",'A',"220221199612230122","永吉","10000"))
+//        data.add(ContactsData("A-Name",'A',"220221199612230122","永吉","10000"))
+//        data.add(ContactsData("A-Name",'A',"220221199612230122","永吉","10000"))
     }
 
     private fun callPhone() {
@@ -111,8 +117,8 @@ class ContactsActivity : AppCompatActivity() {
         bottomSheet.setContentView(view)
         contacts.layoutManager = LinearLayoutManager(this)
         contacts.adapter = adapter
-        adapter.setOnItemClickListener { position, item ->
-            currentItem = adapter.data[position]
+        adapter.setOnItemClickListener { _, item ->
+            currentItem = item
             currentItem?.let {
                 view.mTitle.text = "${it.name}/${it.idCode} ${it.location}-联络人"
                 view.phone.text = it.phone
