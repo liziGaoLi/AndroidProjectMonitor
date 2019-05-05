@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
 	<title>车辆查询</title>
 	<link rel="stylesheet" href="css/mui.min.css">
 	<link rel="stylesheet" href="css/mui.picker.min.css">
@@ -11,31 +11,77 @@
 	<link rel="stylesheet" href="css/app.css">
 </head>
 <body class="total_height">
-	<div class="aui-content total_height white_back">
-		<div class="aui-grid car_search">
-			<div class="aui-row">
-				<div class="aui-col-xs-4">车&nbsp;&nbsp;牌&nbsp;&nbsp;号:</div>
-				<div class="aui-col-xs-8">
-					<input type="text" placeholder="请输入车牌号">
+<div class="aui-content total_height white_back scroll_auto">
+	<div class="aui-grid car_search">
+		<div class="aui-row">
+			<div class="aui-col-xs-4">车&nbsp;牌&nbsp;号:</div>
+			<div class="aui-col-xs-8">
+				<input type="text" placeholder="请输入车牌号">
+			</div>
+		</div>
+		<div class="aui-row">
+			<div class="aui-col-xs-4">开始日期:</div>
+			<div class="aui-col-xs-8 relative">
+				<input type="text" placeholder="请选择开始日期" readonly data-options='{"type":"date"}' onclick="selectStartDate(this);">
+				<img src="img/triangle.png" class="triangle" alt="">
+			</div>
+		</div>
+		<div class="aui-row">
+			<div class="aui-col-xs-4">结束时间:</div>
+			<div class="aui-col-xs-8 relative">
+				<input type="text" placeholder="请选择结束时间" readonly onclick="selectEndTime(this);">
+				<img src="img/triangle.png" class="triangle" alt="">
+			</div>
+		</div>
+	</div>
+	<div class="aui-grid car_search_infor">
+		<div class="search_result_count">
+			<span>以获取</span>
+			<span class="red_font">1</span>
+			<span>数据</span>
+		</div>
+		<div class="aui-row img_box">
+			<div class="aui-col-xs-12">
+				<img src="img/car_pic.jpg" width="100%" alt="">
+			</div>
+		</div>
+		<div class="car_detail_infor">
+			<div class="aui-row border_left border_right">
+				<div class="aui-col-xs-4">
+					<span>车牌</span>
+				</div>
+				<div class="aui-col-xs-8 border_left">
+					<span>吉A122345</span>
 				</div>
 			</div>
-			<div class="aui-row">
-				<div class="aui-col-xs-4">开始日期:</div>
-				<div class="aui-col-xs-8 relative">
-					<input type="text" placeholder="请选择开始日期" readonly data-options='{"type":"date"}' onclick="selectStartDate(this);">
-					<img src="img/triangle.png" class="triangle" alt="">
+			<div class="aui-row border_left border_right">
+				<div class="aui-col-xs-4">
+					<span>过车区域</span>
+				</div>
+				<div class="aui-col-xs-8 border_left">
+					<span>长春市高速支部</span>
 				</div>
 			</div>
-			<div class="aui-row">
-				<div class="aui-col-xs-4">结束时间:</div>
-				<div class="aui-col-xs-8 relative">
-					<input type="text" placeholder="请选择结束时间" readonly onclick="selectEndTime(this);">
-					<img src="img/triangle.png" class="triangle" alt="">
+			<div class="aui-row border_left border_right">
+				<div class="aui-col-xs-4">
+					<span>过车地点</span>
+				</div>
+				<div class="aui-col-xs-8 border_left">
+					<span>吉林红旗收费站-出口</span>
+				</div>
+			</div>
+			<div class="aui-row border_left border_right">
+				<div class="aui-col-xs-4">
+					<span>通过时间</span>
+				</div>
+				<div class="aui-col-xs-8 border_left">
+					<span>2019-04-023 12:12</span>
 				</div>
 			</div>
 		</div>
-		<button class="search_btn fixed_bottom">提交</button>
 	</div>
+	<button class="search_btn" id="submit">提交</button>
+</div>
 </body>
 <script src="js/mui.min.js"></script>
 <script src="js/mui.picker.min.js"></script>
@@ -71,6 +117,11 @@
 			obj.value = rs.text;
 			picker.dispose();
 		});
+	}
+
+	// 当查询结果显示的时候，将提交按钮的fixed_bottom类名去掉
+	function removeBtnClass(){
+		$('#submit').removeClass('fixed_bottom');
 	}
 </script>
 </html>

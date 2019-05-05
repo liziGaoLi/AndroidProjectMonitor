@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
 	<title>车辆核查</title>
 	<link rel="stylesheet" href="css/mui.min.css">
 	<link rel="stylesheet" href="css/mui.picker.min.css">
@@ -11,66 +11,70 @@
 	<link rel="stylesheet" href="css/app.css">
 </head>
 <body class="total_height">
-	<div class="aui-content total_height white_back">
-		<div class="aui-grid car_search">
-			<div class="aui-row">
-				<div class="aui-col-xs-4">车&nbsp;&nbsp;牌&nbsp;&nbsp;号:</div>
-				<div class="aui-col-xs-8">
-					<input type="text" placeholder="请输入车牌号">
-				</div>
+<div class="aui-content total_height white_back">
+	<div class="aui-grid car_search">
+		<div class="aui-row">
+			<div class="aui-col-xs-4 relative" onclick="selectCarType('carInput')">
+				<input type="text" id="carInput" placeholder="选择车型" readonly>
+				<img src="img/triangle.png" class="triangle" alt="">
 			</div>
-			<div class="aui-row">
-				<div class="aui-col-xs-4">开始日期:</div>
-				<div class="aui-col-xs-8 relative">
-					<input type="text" placeholder="请选择开始日期" readonly data-options='{"type":"date"}' onclick="selectStartDate(this);">
-					<img src="img/triangle.png" class="triangle" alt="">
-				</div>
+			<div class="aui-col-xs-6">
+				<input type="text" placeholder="请输入车牌号">
 			</div>
-			<div class="aui-row">
-				<div class="aui-col-xs-4">结束时间:</div>
-				<div class="aui-col-xs-8 relative">
-					<input type="text" placeholder="请选择结束时间" readonly onclick="selectEndTime(this);">
-					<img src="img/triangle.png" class="triangle" alt="">
-				</div>
-			</div>
+			<div class="aui-col-xs-2"><button type="button" class="search" id="search">查询</button></div>
 		</div>
-		<button class="search_btn fixed_bottom">提交</button>
+
 	</div>
+</div>
 </body>
 <script src="js/mui.min.js"></script>
 <script src="js/mui.picker.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script>
 	mui.init();
-    /*选择开始日期*/
-	function selectStartDate(obj){
-		var optionsJson = obj.getAttribute('data-options') || '{}';
-		var options = JSON.parse(optionsJson);
-		var picker = new mui.DtPicker(options);
-		picker.show(function(rs) {
-			/*
-			 * rs.value 拼合后的 value
-			 * rs.text 拼合后的 text
-			 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
-			 * rs.m 月，用法同年
-			 * rs.d 日，用法同年
-			 * rs.h 时，用法同年
-			 * rs.i 分（minutes 的第二个字母），用法同年
-			 */
-			obj.value = rs.text;
-			picker.dispose();
+	// 车型数据
+	var carType = [{
+			"value":0,
+			"text":"小型汽车"
+		},{
+			"value":1,
+			"text":"使馆汽车"
+		},{
+			"value":2,
+			"text":"领馆汽车"
+		},{
+			"value":3,
+			"text":"境外汽车"
+		},{
+			"value":4,
+			"text":"外籍汽车"
+		},{
+			"value":5,
+			"text":"二、三轮摩托车"
+		},{
+			"value":6,
+			"text":"轻便摩托车"
+		},{
+			"value":7,
+			"text":"使馆摩托车"
+		},{
+			"value":8,
+			"text":"领馆摩托车"
+		},{
+			"value":9,
+			"text":"境外摩托车"
+		}
+	];
+    //选择车型
+    function selectCarType(id){
+    	var carInput = document.getElementById(id);
+    	var userPicker = new mui.PopPicker();
+		userPicker.setData(carType);
+		userPicker.show(function(items) {
+			carInput.value = items[0].text;
+			//返回 false 可以阻止选择框的关闭
+			//return false;
 		});
-	}
-
-	/*选择结束时间*/
-	function selectEndTime(obj){
-		var optionsJson = obj.getAttribute('data-options') || '{}';
-		var options = JSON.parse(optionsJson);
-		var picker = new mui.DtPicker(options);
-		picker.show(function(rs) {
-			obj.value = rs.text;
-			picker.dispose();
-		});
-	}
+    }
 </script>
 </html>

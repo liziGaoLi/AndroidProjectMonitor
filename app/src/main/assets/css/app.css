@@ -45,3 +45,28 @@
 .padding_top_0 { padding-top: 0; }
 .padding_top_20 { padding-top: 20px; }
 /*2019-04-26-end*/
+
+/* 2019-04-30-start */
+#search.search { height: 46px; width: 100%; }
+.scroll_auto { overflow: auto; }
+.car_resutl_count,.check_no_result_infor { width: 100%; height: 46px; line-height: 46px; color: #cd0000; font-size: 1rem; text-align: center; background: #eae8ed; }
+.check_no_result_infor { position: absolute; left: 0; top: 30%; margin-top: -23px; background: #fff; font-size: 0.9rem; }
+.car_search_infor { margin-top: 20px; background: #eae6dd; padding: 20px 15px 30px; }
+.car_search_infor [class*=aui-col-xs-] { padding: 0; }
+.car_detail_infor { background: #fff; padding: 0 15px 20px; }
+.car_detail_infor [class*=aui-col-xs-] { padding: 10px 0; }
+.img_box { padding: 15px; background: #fff; }
+.search_result_count { height: 46px; line-height: 46px; text-align: center; color: #333; font-size: 1rem; background: #fff; }
+#submit { margin-bottom: 30px;  }
+.search_con .person_search_detail [class*=aui-col-xs-] { padding: 8px 0; font-size: 0.8rem; text-indent: 10px; }
+.track_box { border: 1px solid #eee; margin-top: 20px; }
+.track_title span:first-child { font-size: 1rem; color: #333; font-weight: bold; padding-left: 10px; }
+.track_title .toggle_btn { float: right; color: #898989; font-size: 0.9rem; padding-right: 15px; }
+/*查询列表中的信息状态，1：正常*/
+.result_list_item { font-size: 0.9rem; border-bottom: 1px dotted #eee; color: #333; padding: 5px 10px; }
+.item_status[data-state="1"] { color: #a1c733; }
+.item_status[data-state="0"] { color: #cd0000; }
+.margin_bottom_30 { margin-bottom: 30px; }
+.text_indent_5 { text-indent: 5px; }
+.toggle_btn[data-state="0"] { color: #0c56e9; }
+/* 2019-04-30-end */
