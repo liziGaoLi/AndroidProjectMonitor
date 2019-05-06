@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 
 fun Activity.transparentStatus() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -48,4 +49,9 @@ fun RecyclerView.moveToPosition(position: Int) {
             }
     }
 
+}
+
+
+fun Activity.toast(text: String) {
+    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }

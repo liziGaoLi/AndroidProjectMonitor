@@ -23,7 +23,7 @@ class ContactAdapter : BaseRecyclerViewAdapter<ContactsData, ContactAdapter.Cont
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
-        var item = data[position]
+        val item = data[position]
         holder.itemView.title.text = "${item.pinyinChar} ${item.name}/${item.idCode} ${item.location}-联络人"
         holder.itemView.phone.text = item.phone
     }

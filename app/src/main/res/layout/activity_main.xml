@@ -4,129 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity"
     android:background="#fff"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
     <!--页面标题栏-start-->
     <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         android:background="#2257c7"
         android:gravity="center_vertical"
-        >
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
         <!--返回按钮-->
         <ImageView
             android:id="@+id/backBtn"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:src="@drawable/arrow"
             android:scaleType="fitCenter"
-            android:visibility="invisible"/>
+            android:src="@drawable/arrow"
+            android:visibility="invisible" />
         <!--页面名称-->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:text="江城云控"
                 android:textColor="#fff"
-                android:text="江城云控"/>
+                android:textSize="20sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
                 android:paddingBottom="8dp"
+                android:text="®"
                 android:textColor="#fff"
-                android:text="®"/>
+                android:textSize="10sp" />
+
             <TextView
                 android:id="@+id/pageTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:text="刘磊"
                 android:textColor="#fff"
-                android:text="刘磊"/>
+                android:textSize="14sp" />
         </LinearLayout>
         <!--页面名称-end-->
         <!--左侧预留-->
         <TextView
             android:layout_width="30dp"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp" />
     </LinearLayout>
     <!--页面标题栏-end-->
     <!--用户信息栏-start-->
     <LinearLayout
         android:id="@+id/userBox"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:gravity="center_vertical">
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
         <ImageView
             android:id="@+id/userImg"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/user_img"/>
+            android:src="@drawable/user_img" />
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center_vertical"
+            android:orientation="vertical"
             android:paddingLeft="15dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="警员："
                     android:textColor="#2257c7"
-                    android:textSize="15sp"
-                    android:text="警员："/>
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/userInfor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="刘磊/204385"
                     android:textColor="#2257c7"
-                    android:textSize="15sp"
-                    android:text="刘磊/204385"/>
+                    android:textSize="15sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="6dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="单位："
                     android:textColor="#2257c7"
-                    android:textSize="15sp"
-                    android:text="单位："/>
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/unitName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="吉林市公安局"
                     android:textColor="#2257c7"
-                    android:textSize="15sp"
-                    android:text="吉林市公安局"/>
+                    android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_height="1dp"
         android:layout_width="match_parent"
-        android:background="#f2f2f2"/>
+        android:layout_height="1dp"
+        android:background="#f2f2f2"
+        android:orientation="vertical" />
     <!--用户信息栏-end-->
     <!--页面入口组-start-->
     <RelativeLayout
@@ -134,250 +144,288 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="#eeeeee"
         android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="200dp"
+            android:layout_height="200dp" android:layout_centerVertical="true" android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"
+            app:srcCompat="@drawable/logo" />
+
         <LinearLayout
             android:id="@+id/top"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true">
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:id="@+id/entry1"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn1"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn1" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="人员核查"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="人员核查"/>
+                    android:textSize="16sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/entry2"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn2"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn2" />
+                <!---->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="车辆核查"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="车辆核查"/>
+                    android:textSize="16sp" />
             </LinearLayout>
+            <!---->
             <LinearLayout
                 android:id="@+id/entry3"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+                <!---->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn3"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn3" />
+                <!---->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="临时布控"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="临时布控"/>
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
+        <!---->
         <LinearLayout
             android:id="@+id/center"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/top">
+            android:layout_below="@id/top"
+            android:orientation="horizontal">
+            <!---->
             <LinearLayout
                 android:id="@+id/entry4"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+                <!---->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn6"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn6" />
+                <!---->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="人员查询"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="人员查询"/>
+                    android:textSize="16sp" />
             </LinearLayout>
+            <!---->
             <LinearLayout
                 android:id="@+id/entry5"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+                <!---->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn4"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn4" />
+                <!---->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="模糊检索"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="模糊检索"/>
+                    android:textSize="16sp" />
             </LinearLayout>
+            <!---->
             <LinearLayout
                 android:id="@+id/entry6"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+                <!---->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn5"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn5" />
+                <!---->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="车辆查询"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="车辆查询"/>
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
+        <!---->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/center">
+            android:layout_below="@id/center"
+            android:orientation="horizontal">
+            <!---->
             <LinearLayout
                 android:id="@+id/entry7"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+                <!---->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn7"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn7" />
+                <!---->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="全省卡扣"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="全省卡扣"/>
+                    android:textSize="16sp" />
             </LinearLayout>
+            <!---->
             <LinearLayout
                 android:id="@+id/entry8"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+                <!---->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn8"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn8" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="人脸识别"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="人脸识别"/>
+                    android:textSize="16sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/entry9"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content">
+                android:paddingBottom="10dp">
+                <!---->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn9"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/btn9" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="8dp"
+                    android:text="通讯录"
                     android:textColor="#333"
-                    android:textSize="16sp"
-                    android:text="通讯录"/>
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

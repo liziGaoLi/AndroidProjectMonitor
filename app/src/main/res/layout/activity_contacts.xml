@@ -62,12 +62,12 @@
         android:layout_height="0dp"
         app:floating_background_color="#99999999"
         app:floating_text_color="@android:color/white"
-        app:floating_text_size="40sp"
+        app:floating_text_size="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/contacts"
         app:layout_constraintEnd_toEndOf="@+id/contacts"
         app:layout_constraintTop_toTopOf="@+id/contacts"
         app:selectedColor="@color/design_default_color_primary"
-        app:textSize="20sp" />
+        app:textSize="15sp" />
 
 
     <TextView
