@@ -9,9 +9,24 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 
-fun Activity.transparentStatus() {
+private fun isLightColor(color: Int): Boolean {
+    val r = (color shr 16) and 0xff
+    val g = (color shr 8) and 0xff
+    val b = color and 0xff
+    return r * 0.299 + g * 0.587 + b * 0.114 >= 192
+}
+
+fun Activity.transparentStatus(colorRes: Int) {
+
+
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-        val option = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+        var option = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (isLightColor(colorRes)) {
+                option = (option or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
+            }
+
+        }
         window.decorView.systemUiVisibility = option;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

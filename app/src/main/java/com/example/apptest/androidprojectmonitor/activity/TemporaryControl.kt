@@ -21,7 +21,7 @@ class TemporaryControl : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_temporary_control)
-        transparentStatus()
+        transparentStatus(resources.getColor(R.color.colorToolbarDefault))
         initView()
         initData()
     }
@@ -85,7 +85,7 @@ class TemporaryControl : AppCompatActivity() {
 
             val okHttp = OkHttpDSL()
             okHttp {
-                requestData {
+                requestDescription {
                     uri = "http://884zjp.natappfree.cc/system/layoutUserApply/insertLayOutInfo"
                     method = Method.POST
                     mimeType = MimeType.APPLICATION_JSON

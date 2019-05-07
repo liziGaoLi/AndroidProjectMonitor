@@ -2,8 +2,7 @@ package com.example.apptest.androidprojectmonitor.adapter
 
 import android.view.View
 import com.example.apptest.androidprojectmonitor.R
-import com.example.apptest.androidprojectmonitor.SpinnerData
-import com.example.apptest.androidprojectmonitor.feature.BaseListAdapter
+import com.example.apptest.androidprojectmonitor.feature.*;
 import kotlinx.android.synthetic.main.item_spinner_selected.view.*
 
 class ControlTypeAdapter : BaseListAdapter<String, ControlTypeAdapter.ControlTypeViewHolder>() {

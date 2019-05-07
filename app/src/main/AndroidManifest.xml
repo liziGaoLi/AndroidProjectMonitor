@@ -24,7 +24,7 @@
         <!-- TODO 临时布控 -->
         <activity android:name=".activity.TemporaryControl" />
         <!-- TODO 通讯录   -->
-        <activity android:name=".activity.ContactsActivity" />
+        <activity android:name=".activity.ContactsActivity"/>
         <!-- TODO 人员查询 -->
         <activity android:name=".activity.PersonCheck" />
         <!-- TODO 车辆核查 -->

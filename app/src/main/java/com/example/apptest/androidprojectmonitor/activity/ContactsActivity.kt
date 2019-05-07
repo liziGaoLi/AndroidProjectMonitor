@@ -32,7 +32,7 @@ class ContactsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts)
-        transparentStatus()
+        transparentStatus(resources.getColor(R.color.colorToolbarDefault))
         initView()
         initData()
     }
@@ -56,7 +56,7 @@ class ContactsActivity : AppCompatActivity() {
     private fun requestContacts() {
         val exec = OkHttpDSL()
         exec {
-            requestData {
+            requestDescription {
                 uri = "http://884zjp.natappfree.cc/system/txl/all"
                 method = Method.POST
             }

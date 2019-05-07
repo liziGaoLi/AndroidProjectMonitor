@@ -1,8 +1,4 @@
 package com.example.apptest.androidprojectmonitor.feature
-
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,18 +7,16 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import butterknife.ButterKnife
 
-open class PagerAdapter(fragmentManager: FragmentManager, var list: List<Fragment>) :
-    FragmentPagerAdapter(fragmentManager) {
-    override fun getCount() = list.size
-    override fun getItem(position: Int) = list[position]
-
-    fun setListData(list: List<Fragment>) {
-        this.list = ArrayList<Fragment>(list)
-        notifyDataSetChanged()
-    }
-}
-
-
+//
+//import android.support.v7.widget.RecyclerView
+//import android.util.Log
+//import android.view.LayoutInflater
+//import android.view.View
+//import android.view.ViewGroup
+//import android.widget.BaseAdapter
+//import butterknife.ButterKnife
+//
+//
 abstract class BaseListAdapter<T, VH : BaseListAdapter.ViewHolder> : BaseAdapter() {
 
     protected val data: ArrayList<T> = ArrayList()
@@ -66,7 +60,7 @@ abstract class BaseListAdapter<T, VH : BaseListAdapter.ViewHolder> : BaseAdapter
 }
 
 abstract class BaseRecyclerViewAdapter<T, VH : BaseRecyclerViewAdapter.RecyclerViewHolder> :
-    RecyclerView.Adapter<VH>(), View.OnClickListener {
+        RecyclerView.Adapter<VH>(), View.OnClickListener {
 
     private var openPosition: Int = -1
 
@@ -91,7 +85,7 @@ abstract class BaseRecyclerViewAdapter<T, VH : BaseRecyclerViewAdapter.RecyclerV
     abstract fun layoutId(): Int
 
     open class RecyclerViewHolder constructor(protected val adapter: BaseRecyclerViewAdapter<*, *>, itemView: View) :
-        RecyclerView.ViewHolder(itemView)/*, OnItemExpandListener*/ {
+            RecyclerView.ViewHolder(itemView)/*, OnItemExpandListener*/ {
         fun expand() {
             if (adapter.openPosition == layoutPosition) {
                 openCurrent()
@@ -167,7 +161,7 @@ abstract class BaseRecyclerViewAdapter<T, VH : BaseRecyclerViewAdapter.RecyclerV
     }
 
     fun setOnItemClickListener(x: (position: Int, item: T) -> Unit) {
-        onItemClickListener =  x
+        onItemClickListener = x
     }
 
     interface OnItemClickListener<T> {
