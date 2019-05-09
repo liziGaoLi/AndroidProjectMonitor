@@ -2,16 +2,27 @@ package com.example.apptest.androidprojectmonitor.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.apptest.androidprojectmonitor.App;
 import com.example.apptest.androidprojectmonitor.R;
+import com.example.apptest.androidprojectmonitor.entity.LoginBean;
+import com.example.apptest.androidprojectmonitor.feature.Method;
+import com.example.apptest.androidprojectmonitor.feature.MimeType;
+import com.example.apptest.androidprojectmonitor.feature.OkHttpDSL;
+import com.example.apptest.androidprojectmonitor.feature.RequestDescription;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import kotlin.Unit;
+import kotlin.coroutines.Continuation;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends SplashActivityWrapper implements View.OnClickListener {
     @BindView(R.id.entry1) // TODO 人员核查
             LinearLayout entry1;
     @BindView(R.id.entry2) // TODO 车辆核查
@@ -31,6 +42,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.entry9) // TODO 通讯录
             LinearLayout entry9;
 
+    @BindView(R.id.userInfor)
+    TextView userInfor;
+
+
+    @Override
+    public void login(String s) {
+        OkHttpDSL okHttpDSL = new OkHttpDSL();
+        RequestDescription requestDescription = okHttpDSL.getRequestDescription();
+        requestDescription.method = Method.POST;
+        requestDescription.uri = "http://192.168.20.230:8081/uas/sso/singlesignoncontrol/checkbill.do";
+        requestDescription.setMimeType(MimeType.APPLICATION_X_FORM_URLENCODED);
+        requestDescription.setBody("strBill=" + s);
+        Function1<Throwable, Unit> exception = ex -> {
+            Toast.makeText(this, "出现了一点问题:" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+            return null;
+        };
+        Function2<LoginBean, Continuation, Unit> success = (loginBean, c) -> {
+            App.app().setLoginBean(loginBean);
+            if (loginBean != null && loginBean.getUserInfo() != null) {
+                userInfor.setText(loginBean.getUserInfo().getName() + "/" + loginBean.getUserInfo().getCode());
+            }
+            return null;
+        };
+
+        okHttpDSL.callType(LoginBean.class, success, exception);
+    }
+
+    @Override
+    public void uaacApiError(String s) {
+        Toast.makeText(this, "出现了一点问题:" + s, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(CarCheck.class);
         } else if (v == entry3) {
             startActivity(TemporaryControl.class);
-        } else if(v == entry5){
+        } else if (v == entry5) {
             startActivity(ObscureSearch.class);
         } else if (v == entry4) {
             startActivity(PersonCheck.class);

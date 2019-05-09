@@ -45,8 +45,6 @@
                 android:text="布控人员申请登记"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
-
-
         </RelativeLayout>
 
 

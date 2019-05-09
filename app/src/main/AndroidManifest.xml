@@ -6,17 +6,19 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" /><!--TODO 无图标：category android:name="android.intent.category.DEFAULT"   -->
             </intent-filter>
         </activity>
         <!-- TODO 人员核查 -->
@@ -24,7 +26,7 @@
         <!-- TODO 临时布控 -->
         <activity android:name=".activity.TemporaryControl" />
         <!-- TODO 通讯录   -->
-        <activity android:name=".activity.ContactsActivity"/>
+        <activity android:name=".activity.ContactsActivity" />
         <!-- TODO 人员查询 -->
         <activity android:name=".activity.PersonCheck" />
         <!-- TODO 车辆核查 -->
