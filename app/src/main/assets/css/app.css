@@ -69,4 +69,6 @@
 .margin_bottom_30 { margin-bottom: 30px; }
 .text_indent_5 { text-indent: 5px; }
 .toggle_btn[data-state="0"] { color: #0c56e9; }
+.border_down { border-bottom: 1px solid #eee; }
+.padding_top_30 { padding-top: 30px; }
 /* 2019-04-30-end */

@@ -15,39 +15,28 @@ import com.example.apptest.androidprojectmonitor.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PersonnelVerification extends AppCompatActivity implements View.OnClickListener {
-    @BindView(R.id.webView)  // TODO 人员核查 WebView
-    WebView webView;
-    @BindView(R.id.backBtn)  // 返回按钮
-        ImageView backBtn;
+public class VerificationDetail extends AppCompatActivity implements View.OnClickListener {
+    @BindView(R.id.webView)  // TODO 人员核查详情 WebView
+            WebView webView;
+    @BindView(R.id.backBtn)  //返回按钮
+            ImageView backBtn;
     Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personnel_verification);
+        setContentView(R.layout.activity_verification_detail);
         ButterKnife.bind(this);
         backBtn.setOnClickListener(this);
         context = webView.getContext();
-        initWebView();  //初始化html页面
+        initWebView();
     }
-
     private void initWebView(){
         webView.getSettings().setJavaScriptEnabled(true);  //设置html,页面可以交互
         webView.setBackgroundColor(Color.TRANSPARENT);
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                String id = url.substring(url.lastIndexOf("=")+1, url.length());
-                Intent intent = new Intent(context, VerificationDetail.class);
-                intent.putExtra("id", id);
-                startActivity(intent);
-                return true;
-            }
-
-        });
-        webView.loadUrl("file:///android_asset/personnel_verification.html");
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
+        webView.loadUrl("file:///android_asset/verification_detail.html?id="+id);
     }
-
     @Override
     public void onClick(View v) {
         if (v == backBtn) {

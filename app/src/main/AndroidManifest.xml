@@ -34,6 +34,7 @@
         <!-- TODO 车辆查询 -->
         <activity android:name=".activity.CarSearch" />
         <activity android:name=".activity.ObscureSearch" />
+        <activity android:name=".activity.VerificationDetail"></activity>
     </application>
 
 </manifest>

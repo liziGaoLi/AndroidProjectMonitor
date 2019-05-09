@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="total_height">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>人员查询</title>
+	<link rel="stylesheet" href="css/aui.css">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="total_height">
+	<div class="aui-content total_height white_back padding_top_30">
+		<div class="search_con">
+			<div class="aui-grid search_padding">
+				<div class="aui-row">
+					<div class="aui-col-xs-4 person_img border_left">
+						<img src="img/person.jpg" alt="">
+					</div>
+					<div class="aui-col-xs-8 border_left border_right">
+						<div class="aui-row no_border_top">
+							<div class="aui-col-xs-5 border_right">
+								姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+							</div>
+							<div class="aui-col-xs-7 text_indent_5">
+								某人
+							</div>
+						</div>
+						<div class="aui-row">
+							<div class="aui-col-xs-5 border_right">
+								性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：
+							</div>
+							<div class="aui-col-xs-7 text_indent_5">
+								男
+							</div>
+						</div>
+						<div class="aui-row">
+							<div class="aui-col-xs-5 border_right">
+								地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：
+							</div>
+							<div class="aui-col-xs-7 text_indent_5">
+								吉林省长春市
+							</div>
+						</div>
+						<div class="aui-row">
+							<div class="aui-col-xs-5 border_right">
+								出生日期：
+							</div>
+							<div class="aui-col-xs-7 text_indent_5">
+								1995-11-13
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-row border_left border_right person_search_detail">
+					<div class="aui-col-xs-4 border_right">
+						<span>身份证号：</span>
+					</div>
+					<div class="aui-col-xs-8">
+						<span>220381199544578945</span>
+					</div>
+				</div>
+				<div class="aui-row border_left border_right border_bottom person_search_detail">
+					<div class="aui-col-xs-4 border_right">
+						<span>户&nbsp;&nbsp;籍&nbsp;&nbsp;地：</span>
+					</div>
+					<div class="aui-col-xs-8">
+						<span>吉林省公主岭市</span>
+					</div>
+				</div>
+				<div class="track_box">
+					<div class="track_title">
+						<span>核查轨迹</span>
+						<span class="toggle_btn" data-state="1" onclick="listToggle(this)">[收起]</span>
+					</div>
+					<div class="result_list" id="resultList">
+						<div class="result_list_item">
+							<span class="item_status" data-state="1">[正常]</span>
+							<span>吉林 2019-04-29 12:12 (核查人:2043812/刘磊)</span>
+						</div>
+						<div class="result_list_item">
+							<span class="item_status" data-state="1">[正常]</span>
+							<span>吉林 2019-04-29 12:12 (核查人:2043812/刘磊)</span>
+						</div>
+						<div class="result_list_item">
+							<span class="item_status" data-state="1">[正常]</span>
+							<span>吉林 2019-04-29 12:12 (核查人:2043812/刘磊)</span>
+						</div>
+						<div class="result_list_item">
+							<span class="item_status" data-state="1">[正常]</span>
+							<span>吉林 2019-04-29 12:12 (核查人:2043812/刘磊)</span>
+						</div>
+						<div class="result_list_item">
+							<span class="item_status" data-state="1">[正常]</span>
+							<span>吉林 2019-04-29 12:12 (核查人:2043812/刘磊)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+	
+	// 核查轨迹列表收缩功能
+	function listToggle(obj){
+		var state = $(obj).attr('data-state');
+		if(state == 0){
+			$(obj).attr('data-state',1).text('[收起]');
+			$('#resultList').slideDown(100);
+		}else{
+			$(obj).attr('data-state',0).text('[展开]');
+			$('#resultList').slideUp(100);
+		}
+	}
+</script>
+</html>

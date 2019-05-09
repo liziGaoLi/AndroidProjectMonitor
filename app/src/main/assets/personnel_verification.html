@@ -69,8 +69,8 @@
             <div class="aui-row border_left border_right id_card">
                 <div class="aui-col-xs-12">
                     <span>身份证号：</span>
-                    <span>220381199544578945</span>
-                    <span class="blue_font">[详]</span>
+                    <span class="id_card">220381199544578945</span>
+                    <span class="blue_font" onclick="checkPersonDetail(this)">[详]</span>
                 </div>
             </div>
             <div class="aui-row border_bottom border_left border_right search_state">
@@ -227,6 +227,12 @@
 	        range.moveStart('character', pos);
 	        range.select();
 	    }
+	}
+
+	//点击身份证旁边的详，查看人员详情
+	function checkPersonDetail(obj){
+		var idCode = $(obj).siblings('.id_card').text();
+		window.location.href = 'verification_detail.html?id='+idCode;
 	}
 </script>
 </html>
