@@ -104,7 +104,7 @@
                     android:id="@+id/userInfor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="刘磊/204385"
+                    android:text="--/------"
                     android:textColor="#2257c7"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -125,7 +125,7 @@
                     android:id="@+id/unitName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="吉林市公安局"
+                    android:text="------"
                     android:textColor="#2257c7"
                     android:textSize="15sp" />
             </LinearLayout>

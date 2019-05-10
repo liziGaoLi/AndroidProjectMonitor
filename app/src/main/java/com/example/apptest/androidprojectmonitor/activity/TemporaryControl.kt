@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
 import android.widget.AdapterView
+import com.example.apptest.androidprojectmonitor.App
 import com.example.apptest.androidprojectmonitor.BasedData
 import com.example.apptest.androidprojectmonitor.DateUtil
 import com.example.apptest.androidprojectmonitor.R
@@ -28,7 +29,7 @@ class TemporaryControl : AppCompatActivity() {
 
     private fun initData() {
         controlTypeAdapter.setData(data)
-        applyPolice.text = "刘雷 / 204328"
+        applyPolice.text = "${App.app().loginBean.userInfo.name}/${App.app().loginBean.userInfo.code}"
         applyTime.text = DateUtil.format("yyyy-MM-dd HH:mm:ss", System.currentTimeMillis())
         idCord.setOnClickListener {
             if (bottomSheet.state == BottomSheetBehavior.STATE_EXPANDED) {

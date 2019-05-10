@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidProjectMonitor</string>
+    <string name="app_name">江城云控1</string>
     <string name="temp_control_hint">请填写布控原由及布控联系方式...</string>
     <string name="backspace"><![CDATA[<]]></string>
 </resources>

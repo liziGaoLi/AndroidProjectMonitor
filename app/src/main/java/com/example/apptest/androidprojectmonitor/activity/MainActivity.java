@@ -1,5 +1,6 @@
 package com.example.apptest.androidprojectmonitor.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.apptest.androidprojectmonitor.App;
 import com.example.apptest.androidprojectmonitor.R;
+import com.example.apptest.androidprojectmonitor.entity.CardInfo;
 import com.example.apptest.androidprojectmonitor.entity.LoginBean;
 import com.example.apptest.androidprojectmonitor.feature.Method;
 import com.example.apptest.androidprojectmonitor.feature.MimeType;
@@ -44,7 +46,9 @@ public class MainActivity extends SplashActivityWrapper implements View.OnClickL
 
     @BindView(R.id.userInfor)
     TextView userInfor;
-
+    @BindView(R.id.unitName)
+    TextView unitName;
+    ProgressDialog dialog;
 
     @Override
     public void login(String s) {
@@ -55,10 +59,16 @@ public class MainActivity extends SplashActivityWrapper implements View.OnClickL
         requestDescription.setMimeType(MimeType.APPLICATION_X_FORM_URLENCODED);
         requestDescription.setBody("strBill=" + s);
         Function1<Throwable, Unit> exception = ex -> {
+            runOnUiThread(() -> {
+                dialog.cancel();
+            });
             Toast.makeText(this, "出现了一点问题:" + ex.getMessage(), Toast.LENGTH_SHORT).show();
             return null;
         };
         Function2<LoginBean, Continuation, Unit> success = (loginBean, c) -> {
+            runOnUiThread(() -> {
+                dialog.cancel();
+            });
             App.app().setLoginBean(loginBean);
             if (loginBean != null && loginBean.getUserInfo() != null) {
                 userInfor.setText(loginBean.getUserInfo().getName() + "/" + loginBean.getUserInfo().getCode());
@@ -67,6 +77,24 @@ public class MainActivity extends SplashActivityWrapper implements View.OnClickL
         };
 
         okHttpDSL.callType(LoginBean.class, success, exception);
+
+        String code = getHardWareCode();
+
+        OkHttpDSL deptInfo = new OkHttpDSL();
+        RequestDescription deptInfoDesc = deptInfo.getRequestDescription();
+        deptInfoDesc.method = Method.POST;
+        deptInfoDesc.uri = "http://20.25.0.84:8180/pams/scms/readcardcontroller/readcardinfo.do";
+        deptInfoDesc.setMimeType(MimeType.APPLICATION_X_FORM_URLENCODED);
+        deptInfoDesc.setBody("thridId=xdja&cardNO=" + code);
+
+
+        Function2<CardInfo, Continuation, Unit> success2 = (cardInfo, c) -> {
+            if (cardInfo != null && cardInfo.getFlag().equals("1")) {
+                unitName.setText(cardInfo.getObj().getDepName());
+            }
+            return null;
+        };
+        deptInfo.callType(CardInfo.class, success2, exception);
     }
 
     @Override
@@ -76,9 +104,14 @@ public class MainActivity extends SplashActivityWrapper implements View.OnClickL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("正在加载中...");
+        dialog.setCancelable(false);
+        dialog.show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+//        dialog = new ProgressDialog(this);
         entry1.setOnClickListener(this);
         entry2.setOnClickListener(this);
         entry3.setOnClickListener(this);

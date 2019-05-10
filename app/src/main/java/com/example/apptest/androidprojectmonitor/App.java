@@ -3,6 +3,7 @@ package com.example.apptest.androidprojectmonitor;
 import android.app.Application;
 
 import com.example.apptest.androidprojectmonitor.entity.LoginBean;
+import com.google.gson.Gson;
 
 public class App extends Application {
 
@@ -27,4 +28,6 @@ public class App extends Application {
     public static App app() {
         return app;
     }
+
+    public static Gson gson = new Gson();
 }
