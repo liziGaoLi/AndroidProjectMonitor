@@ -57,7 +57,7 @@ class ContactsActivity : AppCompatActivity() {
         val exec = OkHttpDSL()
         exec {
             requestDescription {
-                uri = "http://884zjp.natappfree.cc/system/txl/all"
+                uri = "http://ztcih9.natappfree.cc/jcyk/system/txl/all"
                 method = Method.POST
             }
 

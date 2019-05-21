@@ -124,6 +124,9 @@ public class MainActivity extends SplashActivityWrapper implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        if (clicked) return;
+        clicked=true;
+        v.postDelayed(()->clicked=false,500);
         if (v == entry1) {
             startActivity(PersonnelVerification.class);
         } else if (v == entry2) {
@@ -145,4 +148,6 @@ public class MainActivity extends SplashActivityWrapper implements View.OnClickL
         Intent intent = new Intent(this, target);
         startActivity(intent);
     }
+
+    private boolean clicked = false;
 }

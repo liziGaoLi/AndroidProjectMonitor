@@ -1,14 +1,17 @@
 package com.example.apptest.androidprojectmonitor.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import com.example.apptest.androidprojectmonitor.App
 import com.example.apptest.androidprojectmonitor.BasedData
 import com.example.apptest.androidprojectmonitor.DateUtil
+import com.example.apptest.androidprojectmonitor.IdCardVerification.*
 import com.example.apptest.androidprojectmonitor.R
 import com.example.apptest.androidprojectmonitor.adapter.ControlTypeAdapter
 import com.example.apptest.androidprojectmonitor.feature.*
@@ -16,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_temporary_control.*
 import kotlinx.android.synthetic.main.bottom_sheet_keyborad.*
 
 class TemporaryControl : AppCompatActivity() {
+    private var immManager: InputMethodManager? = null;
     lateinit var bottomSheet: BottomSheetBehavior<View>
     private val data = arrayListOf("请选择", "吉林市重点人员")
     private val controlTypeAdapter = ControlTypeAdapter()
@@ -23,6 +27,7 @@ class TemporaryControl : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_temporary_control)
         transparentStatus(resources.getColor(R.color.colorToolbarDefault))
+        immManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         initView()
         initData()
     }
@@ -32,6 +37,8 @@ class TemporaryControl : AppCompatActivity() {
         applyPolice.text = "${App.app().loginBean.userInfo.name}/${App.app().loginBean.userInfo.code}"
         applyTime.text = DateUtil.format("yyyy-MM-dd HH:mm:ss", System.currentTimeMillis())
         idCord.setOnClickListener {
+            controlContent.isCursorVisible = false
+            immManager?.hideSoftInputFromWindow(controlContent.windowToken, 0)
             if (bottomSheet.state == BottomSheetBehavior.STATE_EXPANDED) {
                 bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
             } else {
@@ -43,6 +50,7 @@ class TemporaryControl : AppCompatActivity() {
             finish()
         }
         controlContent.setOnTouchListener { v, event ->
+            controlContent.isCursorVisible = true
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
             false
         }
@@ -74,6 +82,26 @@ class TemporaryControl : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            val result = IDCardValidate(idCord.text.toString())
+            if (result != VALIDITY) {
+                val tip = when (result) {
+                    VALIDITY -> "该身份证有效！";
+                    LACKDIGITS -> "身份证号码长度应该为15位或18位。";
+                    LASTOFNUMBER -> "身份证15位号码都应为数字 ; 18位号码除最后一位外，都应为数字。";
+                    INVALIDBIRTH -> "身份证出生日期无效。";
+                    INVALIDSCOPE -> "身份证生日不在有效范围。";
+                    INVALIDMONTH -> "身份证月份无效";
+                    INVALIDDAY -> "身份证日期无效";
+                    CODINGERROR -> "身份证地区编码错误。";
+                    INVALIDCALIBRATION -> "身份证校验码无效，不是合法的身份证号码";
+                    else -> ""
+                }
+                toast(tip)
+                return@setOnClickListener
+            }
+
+
+
             if (controlContent.text.isEmpty()) {
                 toast("请填写布控原因")
                 return@setOnClickListener
@@ -87,16 +115,16 @@ class TemporaryControl : AppCompatActivity() {
             val okHttp = OkHttpDSL()
             okHttp {
                 requestDescription {
-                    uri = "http://884zjp.natappfree.cc/system/layoutUserApply/insertLayOutInfo"
+                    uri = "http://ztcih9.natappfree.cc/jcyk/system/layoutUserApply/insertLayOutInfo"
                     method = Method.POST
                     mimeType = MimeType.APPLICATION_JSON
                     body = "{\n" +
-                            "    \"applyPolicemanId\": \"1111867\",\n" +
-                            "    \"applyPoliceman\": \"智慧互联\",\n" +
+                            "    \"applyPolicemanId\": \"${App.app().loginBean.userInfo.code}\",\n" +
+                            "    \"applyPoliceman\": \"${App.app().loginBean.userInfo.name}\",\n" +
                             "    \"applyDate\": \"${DateUtil.format("yyyy-MM-dd HH:mm:ss", System.currentTimeMillis())}\",\n" +
                             "    \"idNum\": \"${idCord.text}\",\n" +
                             "    \"layoutType\": \"$selectedText\",\n" +
-                            "    \"reasonAndPhone\": \"${controlContent.text}\"\n" +
+                            "    \"reasonAndPhone\": \"${controlContent.text.toString()}\"\n" +
                             "}"
                 }
 
@@ -161,6 +189,10 @@ class TemporaryControl : AppCompatActivity() {
         confirm.setOnClickListener {
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
         }
+        backspace.setOnLongClickListener {
+            idCord.text = ""
+            return@setOnLongClickListener true
+        }
         backspace.setOnClickListener {
             val text = idCord.text
             if (text.isNotEmpty())
@@ -181,6 +213,9 @@ class TemporaryControl : AppCompatActivity() {
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
+        immManager?.hideSoftInputFromWindow(controlContent.windowToken, 0)
         return super.onTouchEvent(event)
     }
+
+
 }
