@@ -150,7 +150,7 @@
             app:layout_constraintStart_toStartOf="@+id/applyPolice"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
 
-        <EditText
+        <EditText android:cursorVisible="false"
             android:id="@+id/controlContent"
             android:layout_width="0dp"
             android:layout_height="200dp"
